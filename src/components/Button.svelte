@@ -26,7 +26,7 @@
     background: #ff6a95;
   }
 
-  button:hover {
+  button:hover:enabled {
     transform: scale(0.98);
     opacity: 0.9;
   }

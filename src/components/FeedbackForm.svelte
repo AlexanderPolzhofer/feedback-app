@@ -1,9 +1,21 @@
 <script>
-  import Card from "./UI/Card.svelte";
+  import Card from "./Card.svelte";
   import Button from "./Button.svelte";
 
   let text = "";
   let btnDisabled = true;
+  let min = 10;
+  let message;
+
+  const handleInput = () => {
+    if (text.trim().length <= min) {
+      message = `Text must be at least ${min} characters`;
+      btnDisabled = true;
+    } else {
+      message = null;
+      btnDisabled = false;
+    }
+  };
 </script>
 
 <Card>
@@ -15,11 +27,15 @@
       <input
         type="text"
         bind:value={text}
+        on:input={handleInput}
         placeholder="Tell us something that keeps you coming back"
       />
       <Button disabled={btnDisabled} type="submit">Send</Button>
     </div>
   </form>
+  {#if message}
+    <div class="message">{message}</div>
+  {/if}
 </Card>
 
 <style>
@@ -51,5 +67,11 @@
 
   input:focus {
     outline: none;
+  }
+
+  .message {
+    padding-top: 10px;
+    text-align: center;
+    color: rebeccapurple;
   }
 </style>
