@@ -1,6 +1,6 @@
 <script>
   import { createEventDispatcher } from "svelte";
-  import Card from "./UI/Card.svelte";
+  import Card from "./Card.svelte";
   export let item;
 
   const dispatch = createEventDispatcher();
@@ -30,6 +30,7 @@
     padding: 5px;
     text-align: center;
     font-size: 19px;
+    text-shadow: 1.5px 1.5px 1.5px #373f43;
   }
 
   .close {
